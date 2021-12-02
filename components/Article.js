@@ -89,6 +89,16 @@ const data = [
   }
 ];
 
+data.push({
+  title: 'new article',
+  date: '1969',
+  firstParagraph: 'hjasdfhkldjsfk kjklfhjkljashf ksdjfakjfkljlk',
+  secondParagraph: 'sjhfkjdh jfklasjfgjd dkfjlkdjf dajfkldsjflk',
+  thirdParagraph: ' jkfhskdfhj dkflsfjn dkfskfj',
+})
+
+console.log(data);
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -125,15 +135,6 @@ function articleMaker(obj){
   const parThree = document.createElement('p');
   const expandButton = document.createElement('span');
 
-  // <div class="article">
-  //   <h2>{title of the article}</h2>
-  //   <p class="date">{date of the article}</p>
-
-  //   {three separate paragraph elements}
-
-  //   <span class="expandButton">+</span>
-  // </div>
-
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
   article.appendChild(parOne);
@@ -150,10 +151,11 @@ function articleMaker(obj){
   parOne.textContent = obj.firstParagraph;
   parTwo.textContent = obj.secondParagraph;
   parThree.textContent = obj.thirdParagraph;
+  expandButton.textContent = '+';
 
-  // span.addEventListener('click', () =>{
-
-  // })
+  expandButton.addEventListener('click', () =>{
+    article.classList.toggle('article-open');
+  })
 
   return article;
 
@@ -167,4 +169,12 @@ data.forEach(dataItem => {
 });
 
 
-// result put to div.articles
+// // result put to div.articles
+// data.push({
+//   title: 'new article',
+//   date: '1969',
+//   firstParagraph: 'hjasdfhkldjsfk kjklfhjkljashf ksdjfakjfkljlk'
+// })
+
+// console.log(data);
+
